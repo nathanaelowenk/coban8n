@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  bug-reporter:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "5000:5000"
+
+  ngrok:
+    image: ngrok/ngrok:3
+    depends_on:
+      - bug-reporter
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN:?Set NGROK_AUTHTOKEN in .env}
+    command: http bug-reporter:5000
+    ports:
+      - "4040:4040"

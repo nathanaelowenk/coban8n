@@ -1,0 +1,7 @@
+{
+  "title": "Submit button glitch",
+  "description": "Clicking submit twice fires duplicate API calls.",
+  "priority": "medium",
+  "email": "qa@example.com",
+  "screenshot_url": "https://example.com/glitch.png"
+}
